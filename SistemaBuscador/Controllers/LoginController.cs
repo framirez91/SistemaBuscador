@@ -1,6 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using SistemaBuscador.Models;
 using SistemaBuscador.Repositories;
+using SistemaBuscador.Testing;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace SistemaBuscador.Controllers
@@ -15,8 +20,13 @@ namespace SistemaBuscador.Controllers
         }
         public IActionResult Index()
         {
+            DateTime fecha = new DateTime(2000, 12, 1);
+            string sexo = "M";
+            var servicioMilitar = new ServicioMilitar(new Calculos());
+            var resultado = servicioMilitar.EsApto(fecha, sexo);
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> Login(LoginVIewModel model)
         {
@@ -25,7 +35,7 @@ namespace SistemaBuscador.Controllers
                 if (await _loginRepository.UserExist(model.Usuario, model.Password))
                 {
                     _loginRepository.SetSessionAndCookie(HttpContext);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index","Home");
                 }
                 else
                 {
@@ -34,6 +44,5 @@ namespace SistemaBuscador.Controllers
             }
             return View("Index", model);
         }
-
     }
 }

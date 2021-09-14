@@ -1,5 +1,7 @@
-﻿@{ ViewData["Title"] = "Inicio";
-                Layout = null; }
+﻿@{
+    ViewData["Title"] = "Inicio";
+    Layout = null;
+}
 
 @model LoginVIewModel
 
@@ -30,14 +32,12 @@
                         <label asp-for="Password"></label>
                         <div class="input-group-append">
                             <input type="password" asp-for="Password" class="form-control" />
-
                             <button id="boton-ojo" type="button" class="btn btn-secondary">
                                 <i id="icono-ojo" class="bi bi-eye"></i>
                             </button>
                         </div>
                         <span class="text-danger" asp-validation-for="Password"></span>
                     </div>
-                    <span class="text-danger" asp-validation-for="Password"></span>
                     <button type="submit" class="btn btn-primary">Ingresar</button>
                     <div asp-validation-summary="All" class="text-danger mt-3"></div>
                 </form>
@@ -50,27 +50,21 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script>
         $(document).ready(function () {
-            $("#boton-ojo").click(function(){
 
+            $("#boton-ojo").click(function () {
                 let tipo = $("#Password").attr("type");
+                console.log(tipo);
                 if (tipo == "password") {
                     $("#Password").attr("type", "text");
                     $("#icono-ojo").removeClass("bi-eye");
                     $("#icono-ojo").addClass("bi-eye-slash");
-
-                }
-                else {
+                } else {
                     $("#Password").attr("type", "password");
                     $("#icono-ojo").removeClass("bi-eye-slash");
                     $("#icono-ojo").addClass("bi-eye");
                 }
-
             });
-
         });
-
-
-
     </script>
 
 </body>

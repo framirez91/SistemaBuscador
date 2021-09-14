@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using SistemaBuscador.Repositories;
+using System;
+using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace SistemaBuscador.Test
@@ -8,7 +11,7 @@ namespace SistemaBuscador.Test
     {
         public void SetSessionAndCookie(HttpContext context)
         {
-
+            
         }
 
         public async Task<bool> UserExist(string usuario, string password)

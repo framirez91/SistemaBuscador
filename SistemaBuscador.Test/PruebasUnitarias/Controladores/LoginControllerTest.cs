@@ -2,6 +2,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SistemaBuscador.Controllers;
 using SistemaBuscador.Models;
+using System;
+using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace SistemaBuscador.Test.PruebasUnitarias.Controladores
@@ -14,7 +17,7 @@ namespace SistemaBuscador.Test.PruebasUnitarias.Controladores
         {
             //Preparacion
             var loginRepository = new LoginRepositoryEFFalse();
-            var model = new LoginVIewModel() { Usuario = "", Password = "" };
+            var model = new LoginVIewModel() {Usuario="",Password="" };
             //Ejecucion
             var controller = new LoginController(loginRepository);
             controller.ModelState.AddModelError(string.Empty, "Datos invalidos");

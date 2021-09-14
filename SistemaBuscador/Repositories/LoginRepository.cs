@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace SistemaBuscador.Repositories
@@ -12,8 +14,6 @@ namespace SistemaBuscador.Repositories
             Guid sessionId = Guid.NewGuid();
             context.Session.SetString("sessionId", sessionId.ToString());
             context.Response.Cookies.Append("sessionId", sessionId.ToString());
-
-            throw new System.NotImplementedException();
         }
 
         public async Task<bool> UserExist(string usuario, string password)

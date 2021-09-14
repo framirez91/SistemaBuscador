@@ -9,7 +9,7 @@ using SistemaBuscador;
 namespace SistemaBuscador.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210909193236_initial")]
+    [Migration("20210828171342_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

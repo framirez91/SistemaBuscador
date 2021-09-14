@@ -3,7 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SistemaBuscador.Filters;
 using SistemaBuscador.Models;
+using SistemaBuscador.Repositories;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace SistemaBuscador.Controllers
 {
@@ -21,23 +26,7 @@ namespace SistemaBuscador.Controllers
         {
             return View();
         }
-
-
-
-
-        public IActionResult Privacy()
-        { //executing
-
-            return View();
-            //executed
-        }
-
-        public IActionResult Prueba()
-        {
-
-            return View();
-        }
-
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
