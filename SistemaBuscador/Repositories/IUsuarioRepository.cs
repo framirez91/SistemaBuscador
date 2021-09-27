@@ -1,11 +1,16 @@
 ﻿
 using SistemaBuscador.Models;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SistemaBuscador.Repositories
 {
     public interface IUsuarioRepository
     {
+        Task ActualizarPassword(UsuarioCambioPasswordModel model);
+        Task ActualizarUsuario(UsuarioEdicionModel model);
         Task InsertatUsuario(UsuarioCreacionModel model);
+        Task<List<UsuarioListaModel>> ObtenerListaUsuarios();
+        Task<UsuarioEdicionModel> ObtenerUsuarioPorId(int id);
     }
 }

@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using SistemaBuscador.Filters;
 using SistemaBuscador.Repositories;
 using SistemaBuscador.Testing;
+using SistemaBuscador.Utilidades;
 
 namespace SistemaBuscador
 {
@@ -29,6 +30,7 @@ namespace SistemaBuscador
             services.AddScoped<ILoginRepository, LoginRepositoryEF>();
             services.AddScoped<ICalculos, Calculos>();
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+            services.AddScoped<ISeguridad, Seguridad>();
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
