@@ -82,5 +82,14 @@ namespace SistemaBuscador.Repositories
             usuarioDb.Password = _seguridad.Encriptar(model.Password);
             await _context.SaveChangesAsync();
         }
+        public async Task EliminarUsuario(int id)
+        {
+            var usuario = await _context.Usuarios.FirstOrDefaultAsync(x => x.Id == id);
+            _context.Usuarios.Remove(usuario);
+            await _context.SaveChangesAsync();
+
+        }
+
+
     }
 }

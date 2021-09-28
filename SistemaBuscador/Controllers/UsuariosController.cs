@@ -60,6 +60,19 @@ namespace SistemaBuscador.Controllers
             return RedirectToAction("Index");
         }
 
+        public async Task<IActionResult> EliminarUsuario(int id)
+        {
+            var usuario = await _repository.ObtenerUsuarioPorId(id);
+            return View(usuario);
+
+        }
+        [HttpPost]
+        public async Task<IActionResult> EliminarUsuario(UsuarioEdicionModel model)
+        {
+            await _repository.EliminarUsuario(model.Id);
+            return RedirectToAction("index");
+
+        }
 
     }
 

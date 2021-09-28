@@ -1,9 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SistemaBuscador.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SistemaBuscador
 {
@@ -15,5 +11,6 @@ namespace SistemaBuscador
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Rol> Roles { get; set; }
     }
 }

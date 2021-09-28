@@ -9,6 +9,7 @@ namespace SistemaBuscador.Repositories
     {
         Task ActualizarPassword(UsuarioCambioPasswordModel model);
         Task ActualizarUsuario(UsuarioEdicionModel model);
+        Task EliminarUsuario(int id);
         Task InsertatUsuario(UsuarioCreacionModel model);
         Task<List<UsuarioListaModel>> ObtenerListaUsuarios();
         Task<UsuarioEdicionModel> ObtenerUsuarioPorId(int id);
