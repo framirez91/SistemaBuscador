@@ -25,18 +25,18 @@ namespace SistemaBuscador.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> NuevoRol(RolCreacionModel model)
+        public async Task<IActionResult> NuevoRol(RolCreacionModel model)//tiene logica hay que probar
         {
             if (ModelState.IsValid)
             {
                 //Guardar en la bf
                 await _repositorio.InsertarRol(model);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Roles");
             }
-            return View(model);
+            return View("NuevoRol", model);
         }
 
-        public async Task<IActionResult> ActualizarRol(int id)
+        public async Task<IActionResult> ActualizarRol(int id)// no tiene logica pero si hay que probar el obtener repositorio por ID
         {
             var rol = await _repositorio.ObtenerRolPorId(id);
             return View(rol);

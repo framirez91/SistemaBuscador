@@ -1,16 +1,16 @@
 ﻿@{
 
 }
+
 @model UsuarioCreacionModel
 
-<h1>Nuevo Usuario</h1>
+<h3>Nuevo Usuario</h3>
 <hr />
 
 <div class="card">
-   
     <div class="card-body">
-        <div class="alert alert-primary" role="alert">
-            *La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.
+        <div class="alert alert-success mt-3" role="alert">
+            *La contraseña debe tener al menos una Mayuscula, minusculas, digitos y al menos 8 caracteres
         </div>
         <form action="NuevoUsuario" method="post">
             <div class="form-group">
@@ -29,12 +29,9 @@
                 <span asp-validation-for="Apellidos" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="RolId">Rol</label>
-                <select asp-for="RolId" class="form-control">
+                <label asp-for="RolId"></label>
+                <select asp-for="RolId" class="form-control" asp-items="Model.Roles">
                     <option value="">--Seleccione--</option>
-                    <option value="1">Administrador</option>
-                    <option value="2">Supervisor</option>
-                    <option value="3">Vendedor</option>
                 </select>
                 <span asp-validation-for="RolId" class="text-danger"></span>
             </div>
@@ -48,10 +45,10 @@
                 <input asp-for="RePassword" class="form-control" type="password" />
                 <span asp-validation-for="RePassword" class="text-danger"></span>
             </div>
-
             <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
-
             <button class="btn btn-primary" type="submit">Guardar</button>
+
+
         </form>
     </div>
 </div>

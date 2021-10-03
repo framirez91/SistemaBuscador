@@ -1,5 +1,4 @@
-﻿
-using SistemaBuscador.Models;
+﻿using SistemaBuscador.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -11,6 +10,7 @@ namespace SistemaBuscador.Repositories
         Task ActualizarUsuario(UsuarioEdicionModel model);
         Task EliminarUsuario(int id);
         Task InsertatUsuario(UsuarioCreacionModel model);
+        Task<UsuarioCreacionModel> NuevoUsuarioCreacion();
         Task<List<UsuarioListaModel>> ObtenerListaUsuarios();
         Task<UsuarioEdicionModel> ObtenerUsuarioPorId(int id);
     }

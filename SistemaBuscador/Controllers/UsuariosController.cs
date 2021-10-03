@@ -19,10 +19,12 @@ namespace SistemaBuscador.Controllers
             return View(listaUsuario);
         }
 
-        public IActionResult NuevoUsuario()
+        public async Task<IActionResult> NuevoUsuario()
         {
-            return View();
+            var model = await _repository.NuevoUsuarioCreacion();
+            return View(model);
         }
+
         [HttpPost]
         public async Task<IActionResult> NuevoUsuario(UsuarioCreacionModel model)
         {
@@ -30,6 +32,7 @@ namespace SistemaBuscador.Controllers
             {
                 //Guardar el usuario en la bd
                 await _repository.InsertatUsuario(model);
+                //var listaUsuario = await _repository.ObtenerListaUsuarios();
                 return RedirectToAction("Index");
             }
 
@@ -48,6 +51,7 @@ namespace SistemaBuscador.Controllers
             await _repository.ActualizarUsuario(model);
             return RedirectToAction("Index");
         }
+
         public async Task<IActionResult> CambiarPassword(int id)
         {
             ViewBag.idUsuario = id;
@@ -64,16 +68,12 @@ namespace SistemaBuscador.Controllers
         {
             var usuario = await _repository.ObtenerUsuarioPorId(id);
             return View(usuario);
-
         }
         [HttpPost]
         public async Task<IActionResult> EliminarUsuario(UsuarioEdicionModel model)
         {
             await _repository.EliminarUsuario(model.Id);
-            return RedirectToAction("index");
-
+            return RedirectToAction("Index");
         }
-
     }
-
 }
