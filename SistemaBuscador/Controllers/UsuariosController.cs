@@ -33,10 +33,10 @@ namespace SistemaBuscador.Controllers
                 //Guardar el usuario en la bd
                 await _repository.InsertatUsuario(model);
                 //var listaUsuario = await _repository.ObtenerListaUsuarios();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Usuarios");
             }
 
-            return View(model);
+            return View("NuevoUsuario", model);
         }
 
         public async Task<IActionResult> ActualizarUsuario([FromRoute] int id)

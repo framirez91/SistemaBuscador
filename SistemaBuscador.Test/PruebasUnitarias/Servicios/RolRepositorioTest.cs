@@ -62,9 +62,10 @@ namespace SistemaBuscador.Test.PruebasUnitarias.Servicios
             var context2 = BuildContext(nombreBd);// crea un contexto2 para evitar problemas de contexto
             var repo = new RolRepositorio(context2);//pasamos el contexto que acabos de crear--instacion al repositorio
             var model = new RolEdicionModel() { Id = 1, Nombre = "Rol 1 modificado" };//cambiamos el nombre del rol para actualizarlo
+
             //ejecucion
             await repo.ActualizarRol(model);//actualizamos el nombre del rol
-            var context3 = BuildContext(nombreBd);// crea un contexto2 para evitar problemas de contexto
+            var context3 = BuildContext(nombreBd);// crea un contexto para evitar problemas de contexto
             var rolModificado = await context3.Roles.FirstOrDefaultAsync(x => x.Id == 1);//aca traigo de la bd el rol que tenga el id 1
             var resultado = rolModificado.Nombre;//pasamos el nombre del rol modificado a resultado
 
